@@ -16,13 +16,16 @@ describe('SafariDriver', () => {
 
   it('gets contexts', async function () {
     this.timeout(10 * 1000);
-    
+
     let driver = new SafariDriver();
     await driver.createSession(DEFAULT_CAPS);
 
     let contexts = await driver.getContexts();
 
     console.log(contexts);
+    contexts.length.should.be.above(0);
+
+    contexts = await driver.getContexts();
     contexts.length.should.be.above(0);
   });
 
