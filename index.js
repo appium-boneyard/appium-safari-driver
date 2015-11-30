@@ -6,7 +6,7 @@ import { SafariDriver } from './lib/driver';
 import { startServer } from './lib/server';
 
 const DEFAULT_HOST = "localhost";
-const DEFAULT_PORT = 4994;
+const DEFAULT_PORT = 4724;
 
 async function main () {
   let port = yargs.argv.port || DEFAULT_PORT;
@@ -18,4 +18,6 @@ if (require.main === module) {
   asyncify(main);
 }
 
-export { SafariDriver, startServer };
+export { SafariDriver };
+
+export default SafariDriver;

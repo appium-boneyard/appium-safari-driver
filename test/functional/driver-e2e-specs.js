@@ -15,18 +15,41 @@ const DEFAULT_CAPS = {
 describe('SafariDriver', () => {
 
   it('gets contexts', async function () {
-    this.timeout(10 * 1000);
 
     let driver = new SafariDriver();
     await driver.createSession(DEFAULT_CAPS);
 
     let contexts = await driver.getContexts();
 
-    console.log(contexts);
     contexts.length.should.be.above(0);
 
     contexts = await driver.getContexts();
     contexts.length.should.be.above(0);
+
+    await driver.deleteSession();
+  });
+
+  it('gets source of first webview', async function () {
+    let driver = new SafariDriver();
+    await driver.createSession(DEFAULT_CAPS);
+
+    let source = await driver.getPageSource();
+
+    source.length.should.be.above(0);
+
+    await driver.deleteSession();
+  });
+
+  it.only('gets title of first webview', async function () {
+    this.timeout(4 * 1000);
+    let driver = new SafariDriver();
+    await driver.createSession(DEFAULT_CAPS);
+
+    let title = await driver.title();
+
+    title.should.equal('hi hi');
+
+    await driver.deleteSession();
   });
 
 });
