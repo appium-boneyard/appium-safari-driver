@@ -40,14 +40,14 @@ describe('SafariDriver', () => {
     await driver.deleteSession();
   });
 
-  it.only('gets title of first webview', async function () {
-    this.timeout(4 * 1000);
+  it('gets title of first webview', async function () {
     let driver = new SafariDriver();
     await driver.createSession(DEFAULT_CAPS);
 
+    await driver.getUrl('http://www.appium.io');
     let title = await driver.title();
 
-    title.should.equal('hi hi');
+    title.should.equal('Appium: Mobile App Automation Made Awesome.');
 
     await driver.deleteSession();
   });
