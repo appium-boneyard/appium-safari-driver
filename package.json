@@ -1,20 +1,20 @@
 {
-  "name": "appium-webdriveragent-driver",
-  "description": "Appium driver for WebDriverAgent",
+  "name": "appium-safari-driver",
+  "description": "Appium driver for Safari on iOS",
   "keywords": [
     "appium",
     "ios",
-    "webdriveragent"
+    "safari"
   ],
   "version": "1.0.0",
   "author": "appium",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/appium/appium-webdriveragent-driver.git"
+    "url": "https://github.com/appium/appium-safari-driver.git"
   },
   "bugs": {
-    "url": "https://github.com/appium/appium-webdriveragent-driver/issues"
+    "url": "https://github.com/appium/appium-safari-driver/issues"
   },
   "engines": [
     "node"
