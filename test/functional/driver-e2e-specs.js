@@ -29,7 +29,8 @@ describe('SafariDriver', () => {
     await driver.deleteSession();
   });
 
-  it('gets source of first webview', async function () {
+  it.only('gets source of first webview', async function () {
+    this.timeout(20*1000);
     let driver = new SafariDriver();
     await driver.createSession(DEFAULT_CAPS);
 
