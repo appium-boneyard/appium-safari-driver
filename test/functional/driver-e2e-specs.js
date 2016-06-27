@@ -17,7 +17,7 @@ const DEFAULT_CAPS = {
 
 
 describe('SafariDriver', function () {
-  this.timeout(100000);
+  this.timeout(200000);
 
   let driver, sim;
   before(async () => {
