@@ -7,12 +7,13 @@ import { SafariDriver } from '../../lib/driver.js';
 chai.should();
 chai.use(chaiAsPromised);
 
-const IOS_VER = '9.2';
+const IOS_VER = '9.3';
 const DEFAULT_CAPS = {
   platformName: 'iOS',
   platformVersion: IOS_VER,
   bundleId: "com.apple.mobilesafari",
-  deviceName: "iPhone 6"
+  deviceName: "iPhone 6",
+  safariInitialUrl: 'http://appium.io/'
 };
 
 
@@ -32,6 +33,7 @@ describe('SafariDriver', function () {
     await sim.openUrl("http://appium.io");
     driver = new SafariDriver();
     await driver.createSession(DEFAULT_CAPS);
+    console.log('\n\n\n\n\n\n\nFINISHED THE SETUP');
   });
 
   after(async () => {
@@ -40,9 +42,7 @@ describe('SafariDriver', function () {
   });
 
   it('gets contexts', async function () {
-
     let contexts = await driver.getContexts();
-
     contexts.length.should.be.above(0);
 
     contexts = await driver.getContexts();
@@ -50,14 +50,12 @@ describe('SafariDriver', function () {
   });
 
   it('gets source of first webview', async function () {
-
     let source = await driver.getPageSource();
 
     source.length.should.be.above(0);
   });
 
   it('gets title of first webview', async function () {
-
     await driver.setUrl('http://www.appium.io');
     let title = await driver.title();
 
@@ -65,7 +63,6 @@ describe('SafariDriver', function () {
   });
 
   it('finds elements by class name', async function () {
-
     await driver.setUrl('http://www.appium.io');
     let heading = await driver.findElOrEls('class name', 'jumbotron', false);
     let text = await driver.getText(heading);
@@ -74,7 +71,6 @@ describe('SafariDriver', function () {
 
 
   it('finds elements by css', async function () {
-
     await driver.setUrl('http://www.appium.io');
     let navBarLinks = await driver.findElOrEls('css', '.navbar-nav-center a', true);
     navBarLinks.length.should.equal(5);
