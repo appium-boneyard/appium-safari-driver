@@ -28,6 +28,7 @@ describe('SafariDriver', function () {
     }
     sim = await getSimulator(devices[IOS_VER][0].udid);
     await sim.run();
+    await sim.run(); // travis is having a hard time
     await sim.openUrl("http://appium.io");
     driver = new SafariDriver();
     await driver.createSession(DEFAULT_CAPS);
