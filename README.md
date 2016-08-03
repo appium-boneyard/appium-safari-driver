@@ -15,8 +15,20 @@ gulp
 
 ## Test
 
+To get logs for the commands below, set the environment variable `_FORCE_LOGS=1`
+
+Unit tests:
+
 ```
-gulp once  # unit tests
-_FORCE_LOGS=1 gulp e2e-test  # functional tests
+gulp once
+
+_FORCE_LOGS=1 gulp once
 ```
 
+Functional tests:
+
+```
+gulp e2e-test
+
+_FORCE_LOGS=1 gulp e2e-test
+```
